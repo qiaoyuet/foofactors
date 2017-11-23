@@ -84,3 +84,97 @@ freq_out(x)
 ## 4      d    17
 ## 5      e    15
 ```
+
+
+R is not so good as detecting whether a factor is actually just characters. We consider a factor is a true factor when the number of unique values in it does not equal to the length of it. For example, this is a factor with two levels:
+
+
+```r
+a <- factor(c("A","A","B"))
+length(unique(a))
+```
+
+```
+## [1] 2
+```
+
+```r
+length(a)
+```
+
+```
+## [1] 3
+```
+
+```r
+detect_fct(a)
+```
+
+```
+## [1] TRUE
+```
+
+If the number of unique values does equal to the length of the factor we consider it as characters instead of a factor. For example, this should be characters instead of a factor with three levels:
+
+
+```r
+b <- factor(c("A","B","C"))
+length(unique(b))
+```
+
+```
+## [1] 3
+```
+
+```r
+length(b)
+```
+
+```
+## [1] 3
+```
+
+```r
+detect_fct(b)
+```
+
+```
+## [1] FALSE
+```
+
+This function can reorder the levels of a factor into descending order. The descending levels of strings are automatically considered as descending alphabetical order in R.
+
+
+```r
+a <- factor(c("1","3","2","6"))
+levels(a)
+```
+
+```
+## [1] "1" "2" "3" "6"
+```
+
+```r
+levels(reorder_desc(a))
+```
+
+```
+## [1] "6" "3" "2" "1"
+```
+
+```r
+b <- factor(c("Statistics","Mathematics","Computer Science"))
+levels(b)
+```
+
+```
+## [1] "Computer Science" "Mathematics"      "Statistics"
+```
+
+```r
+levels(reorder_desc(b))
+```
+
+```
+## [1] "Statistics"       "Mathematics"      "Computer Science"
+```

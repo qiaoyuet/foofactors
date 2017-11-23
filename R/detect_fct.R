@@ -23,6 +23,6 @@ detect_fct <- function(x) {
   if (is.factor(x)) {
     length(x) != length(unique(x))
   } else {
-    stop("Input value should belong to class factor")
+    stop("Input value should belong to class factor, you privided a class of ", class(x)[1])
   }
 }

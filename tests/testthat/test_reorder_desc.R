@@ -25,6 +25,6 @@ test_that("reorder_desc handles invalid input", {
   x <- 1
   y <- c("hello")
 
-  expect_error(reorder_desc(x), "Input value should belong to class factor")
-  expect_error(reorder_desc(y), "Input value should belong to class factor")
+  expect_error(reorder_desc(x))
+  expect_error(reorder_desc(y))
 })

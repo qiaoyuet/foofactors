@@ -28,6 +28,6 @@ test_that("detect_fct handles invalid input", {
   x <- 1
   y <- c("hello")
 
-  expect_error(detect_fct(x), "Input value should belong to class factor")
-  expect_error(detect_fct(y), "Input value should belong to class factor")
+  expect_error(detect_fct(x))
+  expect_error(detect_fct(y))
 })
