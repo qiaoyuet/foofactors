@@ -1,9 +1,12 @@
 Package: foofactors
-Title: What the Package Does (one line, title case)
+Title: Make Factors Less Annoying
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Qiaoyue", "Tang", email = "qiaoyue.tang@stat.ubc.ca", role = c("aut", "cre"))
+Description: Factors have driven people to extreme measures, like ordering
+    custom conference ribbons and laptop stickers to express how HELLNO we
+    feel about stringsAsFactors. And yet, sometimes you need them. Can they
+    be made less maddening? Let's find out.
 Depends: R (>= 3.3.3)
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
