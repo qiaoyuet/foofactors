@@ -39,3 +39,7 @@ b <- factor(c("Statistics","Mathematics","Computer Science"))
 levels(b)
 levels(reorder_desc(b))
 
+## ------------------------------------------------------------------------
+a <- factor(c("high","low","low","high","medium"))
+factor_asis(a)
+

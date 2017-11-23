@@ -178,3 +178,17 @@ levels(reorder_desc(b))
 ```
 ## [1] "Statistics"       "Mathematics"      "Computer Science"
 ```
+
+
+This function allows you to set levels as the unique values that appear in the data. For example, we want the levels to be "high","low","medium" instead of "high","low","low","high","medium".
+
+
+```r
+a <- factor(c("high","low","low","high","medium"))
+factor_asis(a)
+```
+
+```
+## [1] high   low    low    high   medium
+## Levels: high low medium
+```

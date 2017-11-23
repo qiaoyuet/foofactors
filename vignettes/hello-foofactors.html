@@ -139,6 +139,11 @@ x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">
 <pre><code>## [1] &quot;Computer Science&quot; &quot;Mathematics&quot;      &quot;Statistics&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(<span class="kw">reorder_desc</span>(b))</code></pre></div>
 <pre><code>## [1] &quot;Statistics&quot;       &quot;Mathematics&quot;      &quot;Computer Science&quot;</code></pre>
+<p>This function allows you to set levels as the unique values that appear in the data. For example, we want the levels to be “high”,“low”,“medium” instead of “high”,“low”,“low”,“high”,“medium”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;high&quot;</span>,<span class="st">&quot;low&quot;</span>,<span class="st">&quot;low&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))
+<span class="kw">factor_asis</span>(a)</code></pre></div>
+<pre><code>## [1] high   low    low    high   medium
+## Levels: high low medium</code></pre>
 
 
 
