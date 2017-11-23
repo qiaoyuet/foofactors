@@ -21,10 +21,8 @@ we consider it as character
 a <- factor(c("high", "high", "low"))
 b <- factor(c("high", "low", "medium"))
 
-This should be a factor:
 detect_fct(a)
 
-This should be a character:
 detect_fct(b)
 
 }

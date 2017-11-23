@@ -16,7 +16,7 @@
 
 reorder_desc <- function(x) {
   if(is.factor(x)) {
-    reorder(x, dplyr::desc(x))
+    stats::reorder(x, dplyr::desc(x))
   } else {
     stop("Input value should belong to class factor, you privided a class of ", class(x)[1])
   }

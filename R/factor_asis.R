@@ -10,8 +10,6 @@
 #'
 #' @examples
 #'
-#' We want the levels to be high, low, medium
-#'
 #' a <- factor(c("high","low","low","high","medium"))
 #' factor_asis(a)
 factor_asis <- function(x) {
