@@ -10,11 +10,12 @@ detect_fct(x)
 \item{x}{factor}
 }
 \value{
-boolean; \code{TRUE} if number of unique values does not equal to length of factor,
-   \code{FALSE} otherwise and the input should be a character
+boolean; \code{TRUE} if input should be considered as factor,
+   \code{FALSE} if input should be considered as character
 }
 \description{
-Detect whether a factor is truly factor or character
+If the number of unique values equal to the length of input, we consider the input as factor; otherwise,
+we consider it as character
 }
 \examples{
 a <- factor(c("high", "high", "low"))

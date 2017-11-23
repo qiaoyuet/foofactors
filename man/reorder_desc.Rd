@@ -13,7 +13,8 @@ reorder_desc(x)
 factor; gives reordered levels in decending alphabetical order
 }
 \description{
-Reorder a factor using desc from dplyr
+This function allows you to reorder the levels of a factor in decreasing order. R defines decreasing
+order as decreasing alphabetical order when the levels of factors are strings.
 }
 \examples{
 

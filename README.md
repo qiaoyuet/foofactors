@@ -1,4 +1,3 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 **NOTE: This is a toy package created for expository purposes. It is not meant to actually be useful. If you want a package for factor handling, please see [forcats](https://cran.r-project.org/package=forcats).**
 
 ### foofactors
@@ -8,10 +7,12 @@ Factors are a very useful type of variable in R, but they can also drive you nut
 ### Installation
 
 ``` r
-devtools::install_github("jennybc/foofactors")
+devtools::install_github("qiaoyuet/foofactors")
 ```
 
 ### Quick demo
+
+#### fbind()
 
 Binding two factors via `fbind()`:
 
@@ -36,6 +37,8 @@ fbind(a, b)
 #> [8] counts   
 #> Levels: but character counts eyeballs hits integer where it your
 ```
+
+#### freq\_out()
 
 Often we want a table of frequencies for the levels of a factor. The base `table()` function returns an object of class `table`, which can be inconvenient for downstream work. Processing with `as.data.frame()` can be helpful but it's a bit clunky.
 
@@ -67,4 +70,48 @@ freq_out(x)
 #> 3      c    17
 #> 4      d    17
 #> 5      e    15
+```
+
+#### detect\_fct()
+
+R is not so good as detecting whether a factor is actually just characters. We consider a factor is a true factor when the number of unique values in it does not equal to the length of it. For example, this is a factor with two levels:
+
+``` r
+a <- factor(c("A","A","B"))
+length(unique(a))
+#> [1] 2
+length(a)
+#> [1] 3
+detect_fct(a)
+#> [1] TRUE
+```
+
+If the number of unique values does equal to the length of the factor we consider it as characters instead of a factor. For example, this should be characters instead of a factor with three levels:
+
+``` r
+b <- factor(c("A","B","C"))
+length(unique(b))
+#> [1] 3
+length(b)
+#> [1] 3
+detect_fct(b)
+#> [1] FALSE
+```
+
+#### reorder\_desc()
+
+This function can reorder the levels of a factor into descending order. The descending levels of strings are automatically considered as descending alphabetical order in R.
+
+``` r
+a <- factor(c("1","3","2","6"))
+levels(a)
+#> [1] "1" "2" "3" "6"
+levels(reorder_desc(a))
+#> [1] "6" "3" "2" "1"
+
+b <- factor(c("Statistics","Mathematics","Computer Science"))
+levels(b)
+#> [1] "Computer Science" "Mathematics"      "Statistics"
+levels(reorder_desc(b))
+#> [1] "Statistics"       "Mathematics"      "Computer Science"
 ```

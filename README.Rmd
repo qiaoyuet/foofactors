@@ -4,7 +4,6 @@ output:
     variant: markdown_github
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -23,10 +22,12 @@ Factors are a very useful type of variable in R, but they can also drive you nut
 ### Installation
 
 ```{r installation, eval = FALSE}
-devtools::install_github("jennybc/foofactors")
+devtools::install_github("qiaoyuet/foofactors")
 ```
   
 ### Quick demo
+
+#### fbind()
 
 Binding two factors via `fbind()`:
 
@@ -48,6 +49,8 @@ The `fbind()` function glues two factors together and returns factor.
 fbind(a, b)
 ```
 
+#### freq_out()
+
 Often we want a table of frequencies for the levels of a factor. The base `table()` function returns an object of class `table`, which can be inconvenient for downstream work. Processing with `as.data.frame()` can be helpful but it's a bit clunky.
 
 ```{r}
@@ -62,3 +65,39 @@ The `freq_out()` function returns a frequency table as a well-named `tbl_df`:
 ```{r}
 freq_out(x)
 ```
+
+
+#### detect_fct()
+
+R is not so good as detecting whether a factor is actually just characters. We consider a factor is a true factor when the number of unique values in it does not equal to the length of it. For example, this is a factor with two levels:
+
+```{r}
+a <- factor(c("A","A","B"))
+length(unique(a))
+length(a)
+detect_fct(a)
+```
+
+If the number of unique values does equal to the length of the factor we consider it as characters instead of a factor. For example, this should be characters instead of a factor with three levels:
+
+```{r}
+b <- factor(c("A","B","C"))
+length(unique(b))
+length(b)
+detect_fct(b)
+```
+
+#### reorder_desc()
+
+This function can reorder the levels of a factor into descending order. The descending levels of strings are automatically considered as descending alphabetical order in R.
+
+```{r}
+a <- factor(c("1","3","2","6"))
+levels(a)
+levels(reorder_desc(a))
+
+b <- factor(c("Statistics","Mathematics","Computer Science"))
+levels(b)
+levels(reorder_desc(b))
+```
+
