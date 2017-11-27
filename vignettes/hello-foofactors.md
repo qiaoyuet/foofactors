@@ -1,6 +1,5 @@
 # Foofactors Vignette
-Qiaoyue Tang  
-`r Sys.Date()`  
+Qiaoyue Tang
 
 Factors are a very useful type of variable in R, but they can also drive you nuts. Especially the "stealth factor" that you think of as character.
 
